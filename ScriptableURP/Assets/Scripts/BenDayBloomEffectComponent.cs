@@ -14,7 +14,7 @@ public class BenDayBloomEffectComponent : VolumeComponent, IPostProcessComponent
 
     public IntParameter calmp = new IntParameter(65472, true);
 
-    public ClampedIntParameter maxInterations = new ClampedIntParameter(6, 0, 10);
+    public ClampedIntParameter maxIterations = new ClampedIntParameter(6, 0, 10);
 
     public NoInterpColorParameter tint = new NoInterpColorParameter(Color.white);
 
