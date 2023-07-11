@@ -24,6 +24,8 @@ public class CustomPostProcessPass : ScriptableRenderPass
     private RTHandle[] m_BloomMipUp;
     private RTHandle[] m_BloomMipDown;
     private GraphicsFormat hdrFormat;
+
+    private RenderingData _renderingData;
     
     public CustomPostProcessPass(Material bloomMaterial, Material compositeMaterial)
     {
@@ -62,6 +64,10 @@ public class CustomPostProcessPass : ScriptableRenderPass
 
     public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
     {
+        if(_renderingData.cameraData.cameraType == CameraType.SceneView)
+            return;
+
+        
         VolumeStack stack = VolumeManager.instance.stack;
         m_bloomEffect = stack.GetComponent<BenDayBloomEffectComponent>();
 
@@ -87,6 +93,7 @@ public class CustomPostProcessPass : ScriptableRenderPass
     public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
     {
         m_Descriptor = renderingData.cameraData.cameraTargetDescriptor;
+        _renderingData = renderingData;
     }
 
     internal void SetTarget(RTHandle cameraColorTargetHandle, RTHandle cameraDepthTargetHandle)
@@ -130,7 +137,7 @@ public class CustomPostProcessPass : ScriptableRenderPass
             desc.width = Mathf.Max(1, desc.width >> 1);
             desc.height = Mathf.Max(1, desc.height >> 1);
         }
-        
+       
         Blitter.BlitCameraTexture(cmd, source, m_BloomMipDown[0], RenderBufferLoadAction.DontCare, RenderBufferStoreAction.Store, bloomMaterial, 0);
         
         // DownSample - gaussian pyramid
