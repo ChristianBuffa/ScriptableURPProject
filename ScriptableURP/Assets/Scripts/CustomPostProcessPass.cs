@@ -64,7 +64,7 @@ public class CustomPostProcessPass : ScriptableRenderPass
 
     public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
     {
-        if(_renderingData.cameraData.cameraType == CameraType.SceneView)
+        if(_renderingData.cameraData.cameraType == CameraType.SceneView || _renderingData.cameraData.cameraType == CameraType.Preview)
             return;
 
         
