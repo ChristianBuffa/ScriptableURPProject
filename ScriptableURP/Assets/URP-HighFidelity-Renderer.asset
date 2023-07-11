@@ -54,7 +54,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -1878332245247344467}
   - {fileID: 5906118362785183973}
-  m_RendererFeatureMap: adc0de57c6d2eee5e5f838e75bbff651
+  - {fileID: 5725399519106630204}
+  m_RendererFeatureMap: adc0de57c6d2eee5e5f838e75bbff6513c028b3587b4744f
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -97,6 +98,20 @@ MonoBehaviour:
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 0
+--- !u!114 &5725399519106630204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 255ad8e436506ac498c3f27212593850, type: 3}
+  m_Name: PixelArtRenderFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  material: {fileID: 2100000, guid: 9d3097b268859554a981d774c2db7cad, type: 2}
 --- !u!114 &5906118362785183973
 MonoBehaviour:
   m_ObjectHideFlags: 0

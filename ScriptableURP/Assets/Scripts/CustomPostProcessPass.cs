@@ -24,8 +24,6 @@ public class CustomPostProcessPass : ScriptableRenderPass
     private RTHandle[] m_BloomMipUp;
     private RTHandle[] m_BloomMipDown;
     private GraphicsFormat hdrFormat;
-
-    private RenderingData _renderingData;
     
     public CustomPostProcessPass(Material bloomMaterial, Material compositeMaterial)
     {
@@ -64,7 +62,7 @@ public class CustomPostProcessPass : ScriptableRenderPass
 
     public override void Execute(ScriptableRenderContext context, ref RenderingData renderingData)
     {
-        if(_renderingData.cameraData.cameraType == CameraType.SceneView || _renderingData.cameraData.cameraType == CameraType.Preview)
+        if(renderingData.cameraData.cameraType == CameraType.SceneView || renderingData.cameraData.cameraType == CameraType.Preview)
             return;
 
         
@@ -93,7 +91,6 @@ public class CustomPostProcessPass : ScriptableRenderPass
     public override void OnCameraSetup(CommandBuffer cmd, ref RenderingData renderingData)
     {
         m_Descriptor = renderingData.cameraData.cameraTargetDescriptor;
-        _renderingData = renderingData;
     }
 
     internal void SetTarget(RTHandle cameraColorTargetHandle, RTHandle cameraDepthTargetHandle)
