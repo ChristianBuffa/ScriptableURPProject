@@ -56,7 +56,8 @@ MonoBehaviour:
   - {fileID: 5906118362785183973}
   - {fileID: 5873465781781707751}
   - {fileID: 3531163093009031433}
-  m_RendererFeatureMap: adc0de57c6d2eee5e5f838e75bbff651e7bb827302be825109e1c5ca1f360131
+  - {fileID: 3093555964806209836}
+  m_RendererFeatureMap: adc0de57c6d2eee5e5f838e75bbff651e7bb827302be825109e1c5ca1f3601312ca11077c284ee2a
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -99,6 +100,42 @@ MonoBehaviour:
   m_CopyDepthMode: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 0
+--- !u!114 &3093555964806209836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b1fcb3249cd0949a2964ccf75c21fe, type: 3}
+  m_Name: ScreenSpaceOutlines
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  renderPassEvent: 300
+  outlinesLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  outlinesOccluderLayerMask:
+    serializedVersion: 2
+    m_Bits: 128
+  outlineSettings:
+    outlineColor: {r: 0, g: 0, b: 0, a: 1}
+    outlineScale: 3
+    depthThreshold: 10
+    robertsCrossMultiplier: 100
+    normalThreshold: 0.5
+    steepAngleThreshold: 0.2
+    steepAngleMultiplier: 25
+  viewSpaceNormalsTextureSettings:
+    colorFormat: 0
+    depthBufferBits: 16
+    filterMode: 0
+    backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+    perObjectData: 0
+    enableDynamicBatching: 0
+    enableInstancing: 0
 --- !u!114 &3531163093009031433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: PixelArtrenderObjects
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     passTag: PixelArtrenderObjects
     Event: 300
@@ -126,14 +163,14 @@ MonoBehaviour:
     overrideShader: {fileID: 0}
     overrideShaderPassIndex: 0
     overrideMode: 1
-    overrideDepthState: 1
+    overrideDepthState: 0
     depthCompareFunction: 0
-    enableWrite: 1
+    enableWrite: 0
     stencilSettings:
       overrideStencilState: 0
       stencilReference: 0
-      stencilCompareFunction: 8
-      passOperation: 0
+      stencilCompareFunction: 4
+      passOperation: 1
       failOperation: 0
       zFailOperation: 0
     cameraSettings:
@@ -153,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
   m_Name: FullScreenPassRendererFeature
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   passMaterial: {fileID: 2100000, guid: 96709ba00cc761b44977ca5c38cc8cb2, type: 2}
   injectionPoint: 550
   requirements: 4
